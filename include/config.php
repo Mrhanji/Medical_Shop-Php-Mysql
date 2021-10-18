@@ -8,4 +8,13 @@ $domain="http://localhost/medical_shop/";
 date_default_timezone_set("Asia/Kolkata");
  $conn=mysqli_connect($host,$db_user,$db_pass,$db_name) or die("Connection Failed");
 
+
+
+ function msg($msg){
+
+    echo '<script> alert("'.$msg.'");</script>';
+ }
+ function redirect($url){
+    echo '<script> window.location.replace("'.$url.'");</script>';
+ }
 ?>

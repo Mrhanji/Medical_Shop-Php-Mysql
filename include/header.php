@@ -7,7 +7,7 @@
                     <li><a href="#"> Home</a></li>
                     <li><a href="medicines.php"> Medicines</a></li>
                     <li><a href="covid.html"> Covid-19</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
                <ul class="sub-nav">
     

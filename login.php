@@ -44,22 +44,22 @@
         <p id="acnt">Don't have an acoount? <a href="signup.html" >Create your account</a>, it takes less than a minute.</p>
     
      
-        <form action="coonect.php" method="post">
+        <form  method="POST">
 
         <div class="text_field"> 
-            <input type="text"name="Name" required >
+            <input type="text"name="email"  required >
           
             <span></span>
-            <label>NAME</label>
+            <label>Email</label>
         </div>
      
         <div class="text_field">
-            <input type="password" name="Password" required>
+            <input type="password" name="password" required>
             <span></span>
             <label>PASSWORD</label>
         </div>
        <p id="pwd" > Forgot Password?  <a id="demo" href="#" > Click Here</a> </p>
-    <input type="submit"   value= "LOGIN "  href="table.php"> <br>
+    <input type="submit"  name="LOGIN" value= "LOGIN "> <br>
         
         </form>
 
@@ -78,3 +78,37 @@
 
     </body>
     </html>
+    <?php include 'include/config.php';?>
+
+
+    <?php 
+    session_start();
+    if(isset($_SESSION['uid'])){
+        redirect('userprofile.php');
+    }
+    
+    if(isset($_POST['LOGIN'])){
+       
+      
+       
+$email=$_POST['email'];
+$pass=base64_encode($_POST['password']);
+
+$db=mysqli_query($conn,"SELECT *FROM userlist WHERE email='$email' AND password='$pass'; ");
+if(mysqli_num_rows($db)>0){
+    $userdata=mysqli_fetch_assoc($db);
+    $_SESSION['uid']=$userdata['id'];
+    redirect('userprofile.php');
+}else{
+   
+     msg('Please enter a valid details...');  
+   
+}
+
+
+
+
+    }
+    
+    
+    ?>
