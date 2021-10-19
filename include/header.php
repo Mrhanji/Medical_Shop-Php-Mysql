@@ -15,7 +15,7 @@
                     </div>
                     <div class="licon">
                      
-                        <li><a href="#"><i class="fa fa-shopping-cart" ></i> <span class="count">0</span></a></li></div>
+                        <li><a href="cart.php"><i class="fa fa-shopping-cart" ></i> <span class="count">0</span></a></li></div>
                     </ul>
         </nav>
       </div> 
