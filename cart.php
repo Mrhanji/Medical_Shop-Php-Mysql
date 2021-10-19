@@ -53,6 +53,7 @@ cart
                     <img src="<?php echo $data['image'];?>" alt="">
                     <h3 ><?php echo $data['name'];?></h3>
                     <p>A bottle of 150 ml<br>  ₹130</p>
+                    <a href="controller/remove_cart.php?id=<?php echo  base64_encode($data['id']);?>" class="bttn">Remove</a>
                    
                    </div>
                    <?php 
