@@ -14,8 +14,27 @@
                     <div class="consult-btn"><li  onclick="openPop()">Consult</li>
                     </div>
                     <div class="licon">
-                     
-                        <li><a href="cart.php"><i class="fa fa-shopping-cart" ></i> <span class="count">0</span></a></li></div>
+                     <?php
+                    if(!isset($_SESSION['uid'])){
+                      $itemdat=null;
+                  }
+                  else{
+                     $uid=$_SESSION['uid'];
+                     $getcart=mysqli_query($conn,"SELECT COUNT(id) FROM cart WHERE user_id='$uid'; ");
+                     $itemdat=mysqli_fetch_array($getcart);
+                  }
+                     ?>
+                        <li><a href="cart.php"><i class="fa fa-shopping-cart" ></i> <span class="count"><?php
+                        
+                        if($itemdat==null){
+                          echo 0;
+                        } else{
+                          echo $itemdat['0'];
+                        }
+                        
+                        
+                        
+                        ?></span></a></li></div>
                     </ul>
         </nav>
       </div> 

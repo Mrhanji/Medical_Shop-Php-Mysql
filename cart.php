@@ -42,7 +42,7 @@ cart
             <h2 class="product-category">Medicines</h2>
             <div class="box-container">
                 
-  <?php  $product=mysqli_query($conn,"SELECT *FROM cart c INNER JOIN product_list pl ON c.product_id=pl.product_id WHERE user_id='$userid'");
+  <?php  $product=mysqli_query($conn,"SELECT *FROM cart c INNER JOIN product_list pl ON c.prodduct_id=pl.product_id WHERE c.user_id='$userid'");
          if(mysqli_num_rows($product)>0){
              while($data=mysqli_fetch_assoc($product)){
 
@@ -51,9 +51,9 @@ cart
                
                    <div class="box">
                     <img src="<?php echo $data['image'];?>" alt="">
-                    <h3 >Kofflet Syrup</h3>
+                    <h3 ><?php echo $data['name'];?></h3>
                     <p>A bottle of 150 ml<br>  ₹130</p>
-                    <a href="covid_essent.html" class="bttn">Add to Cart</a>
+                   
                    </div>
                    <?php 
                        }
